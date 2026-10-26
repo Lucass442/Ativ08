@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO e Metadados -->
+  <title>NexusHome - Painel de Controle e Telemetria Residencial</title>
+  <meta name="description" content="Painel de controle de telemetria e automação para residências inteligentes. Monitore energia, clima, segurança e acione dispositivos em tempo real.">
+  <meta name="keywords" content="smart home, automação residencial, telemetria, painel de controle, iot, sensores">
+  <meta name="author" content="NexusHome Automação">
+  <meta name="robots" content="index, follow">
+
+  <!-- Fontes Google (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Folha de Estilos -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO SEMÂNTICO DO PAINEL -->
+  <header class="dashboard-header">
+    <div class="header-container">
+      <div class="brand">
+        <span class="brand-icon" aria-hidden="true">🏠</span>
+        <div class="brand-text">
+          <h1>NexusHome</h1>
+          <p class="tagline">Central de Automação & Telemetria</p>
+        </div>
+      </div>
+
+      <div class="system-status" aria-label="Status do Sistema">
+        <span class="status-indicator online" aria-hidden="true"></span>
+        <div class="status-info">
+          <span class="status-label">Sistema Conectado</span>
+          <span class="status-mode">Modo: <strong>Presença Ativa</strong></span>
+        </div>
+      </div>
+
+      <div class="header-datetime" aria-label="Data e clima atual">
+        <time datetime="2026-10-26" id="current-date">Segunda-feira, 26 de Outubro</time>
+        <span class="weather-badge">🌤️ 24°C Exterior</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL (DASHBOARD) -->
+  <main class="dashboard-main">
+
+    <!-- SEÇÃO 1: CARDS DE TELEMETRIA E SENSORES -->
+    <section class="telemetry-section" aria-labelledby="telemetry-title">
+      <div class="section-header">
+        <h2 id="telemetry-title">Telemetria & Métricas em Tempo Real</h2>
+        <span class="refresh-badge"><span class="pulse-dot"></span> Dados ao vivo</span>
+      </div>
+
+      <div class="telemetry-grid">
+        
+        <!-- Card 1: Climatização -->
+        <article class="metric-card" id="card-clima">
+          <header class="card-header">
+            <span class="card-icon" aria-hidden="true">🌡️</span>
+            <span class="card-tag">Clima Interno</span>
+          </header>
+          <div class="card-body">
+            <p class="metric-value">22.4<span class="unit">°C</span></p>
+            <p class="metric-label">Temperatura da Sala</p>
+            <div class="progress-bar-container" title="Umidade relativa: 52%">
+              <div class="progress-bar-fill" style="width: 52%;"></div>
+            </div>
+          </div>
+          <footer class="card-footer">
+            <span>💧 Umidade: <strong>52%</strong></span>
+            <span class="badge-subtle positive">Ideal</span>
+          </footer>
+        </article>
+
+        <!-- Card 2: Energia -->
+        <article class="metric-card" id="card-energia">
+          <header class="card-header">
+            <span class="card-icon" aria-hidden="true">⚡</span>
+            <span class="card-tag">Consumo Elétrico</span>
+          </header>
+          <div class="card-body">
+            <p class="metric-value">1.48<span class="unit">kW/h</span></p>
+            <p class="metric-label">Demanda Atual</p>
+            <div class="progress-bar-container" title="Consumo mensal: 68% da meta">
+              <div class="progress-bar-fill warning" style="width: 68%;"></div>
+            </div>
+          </div>
+          <footer class="card-footer">
+            <span>☀️ Solar gerando: <strong>+2.1 kW</strong></span>
+            <span class="badge-subtle eco">Eco-friendly</span>
+          </footer>
+        </article>
+
+        <!-- Card 3: Segurança -->
+        <article class="metric-card" id="card-seguranca">
+          <header class="card-header">
+            <span class="card-icon" aria-hidden="true">🛡️</span>
+            <span class="card-tag">Segurança</span>
+          </header>
+          <div class="card-body">
+            <p class="metric-value status-text-secure">Trancado</p>
+            <p class="metric-label">Fechaduras Principais</p>
+            <ul class="mini-metrics-list">
+              <li>Câmeras ativas: <strong>4/4</strong></li>
+              <li>Sensores de janela: <strong>Seguros</strong></li>
+            </ul>
+          </div>
+          <footer class="card-footer">
+            <span>🚨 Alertas recentes: <strong>0</strong></span>
+            <span class="badge-subtle secure">Seguro</span>
+          </footer>
+        </article>
+
+        <!-- Card 4: Rede & Dispositivos -->
+        <article class="metric-card" id="card-rede">
+          <header class="card-header">
+            <span class="card-icon" aria-hidden="true">📶</span>
+            <span class="card-tag">Rede Wi-Fi 6</span>
+          </header>
+          <div class="card-body">
+            <p class="metric-value">18<span class="unit">disp.</span></p>
+            <p class="metric-label">Dispositivos Conectados</p>
+            <div class="progress-bar-container" title="Largura de banda utilizada: 25%">
+              <div class="progress-bar-fill" style="width: 25%;"></div>
+            </div>
+          </div>
+          <footer class="card-footer">
+            <span>Ping: <strong>11 ms</strong> (500 Mbps)</span>
+            <span class="badge-subtle positive">Estável</span>
+          </footer>
+        </article>
+
+        <!-- Card 5: Qualidade do Ar -->
+        <article class="metric-card" id="card-ar">
+          <header class="card-header">
+            <span class="card-icon" aria-hidden="true">🍃</span>
+            <span class="card-tag">Qualidade do Ar</span>
+          </header>
+          <div class="card-body">
+            <p class="metric-value">96<span class="unit">/100</span></p>
+            <p class="metric-label">Índice IQA (Excelente)</p>
+            <div class="progress-bar-container" title="Pureza do ar: 96%">
+              <div class="progress-bar-fill success" style="width: 96%;"></div>
+            </div>
+          </div>
+          <footer class="card-footer">
+            <span>CO₂: <strong>420 ppm</strong></span>
+            <span class="badge-subtle positive">Puro</span>
+          </footer>
+        </article>
+
+        <!-- Card 6: Reservatório de Água -->
+        <article class="metric-card" id="card-agua">
+          <header class="card-header">
+            <span class="card-icon" aria-hidden="true">💧</span>
+            <span class="card-tag">Cisterna / Água</span>
+          </header>
+          <div class="card-body">
+            <p class="metric-value">85<span class="unit">%</span></p>
+            <p class="metric-label">Nível da Caixa D'água</p>
+            <div class="progress-bar-container" title="Nível: 850L de 1000L">
+              <div class="progress-bar-fill water" style="width: 85%;"></div>
+            </div>
+          </div>
+          <footer class="card-footer">
+            <span>Vazão atual: <strong>0.0 L/min</strong></span>
+            <span class="badge-subtle secure">Sem Vazamentos</span>
+          </footer>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SEÇÃO 2: ACIONAMENTO E CONTROLE DE DISPOSITIVOS -->
+    <section class="actions-section" aria-labelledby="actions-title">
+      <div class="section-header">
+        <h2 id="actions-title">Central de Acionamento & Automação</h2>
+        <p class="section-description">Dispare rotinas, ative modos de cena ou comute periféricos conectados instantaneamente.</p>
+      </div>
+
+      <div class="actions-grid">
+        
+        <!-- Interruptor 1: Iluminação Geral -->
+        <div class="control-box">
+          <div class="control-details">
+            <span class="control-icon" aria-hidden="true">💡</span>
+            <div>
+              <h3>Iluminação Living</h3>
+              <p>Luzes em tom quente (65%)</p>
+            </div>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" checked aria-label="Alternar Iluminação Living">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <!-- Interruptor 2: Ar-Condicionado -->
+        <div class="control-box">
+          <div class="control-details">
+            <span class="control-icon" aria-hidden="true">❄️</span>
+            <div>
+              <h3>Ar-Condicionado</h3>
+              <p>Climatizando a 22°C (Eco)</p>
+            </div>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" checked aria-label="Alternar Ar-Condicionado">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <!-- Interruptor 3: Purificador de Ar -->
+        <div class="control-box">
+          <div class="control-details">
+            <span class="control-icon" aria-hidden="true">🌀</span>
+            <div>
+              <h3>Purificador HEPA</h3>
+              <p>Modo silencioso noturno</p>
+            </div>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" aria-label="Alternar Purificador HEPA">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <!-- Interruptor 4: Irrigação do Jardim -->
+        <div class="control-box">
+          <div class="control-details">
+            <span class="control-icon" aria-hidden="true">🌱</span>
+            <div>
+              <h3>Irrigação Inteligente</h3>
+              <p>Próximo ciclo programado: 18:00</p>
+            </div>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" aria-label="Alternar Irrigação Inteligente">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+      </div>
+
+      <!-- BOTÕES DE CENAS / MACROS RÁPIDAS -->
+      <div class="scenes-container">
+        <h3>Cenas & Comandos Globais</h3>
+        <div class="scenes-buttons-group">
+          
+          <button type="button" class="btn-scene active" id="btn-scene-relax">
+            <span class="scene-emoji" aria-hidden="true">🛋️</span>
+            <span class="scene-name">Modo Conforto</span>
+          </button>
+
+          <button type="button" class="btn-scene" id="btn-scene-cinema">
+            <span class="scene-emoji" aria-hidden="true">🎬</span>
+            <span class="scene-name">Modo Cinema</span>
+          </button>
+
+          <button type="button" class="btn-scene" id="btn-scene-leave">
+            <span class="scene-emoji" aria-hidden="true">🚪</span>
+            <span class="scene-name">Sair de Casa</span>
+          </button>
+
+          <button type="button" class="btn-scene alert" id="btn-scene-lockdown">
+            <span class="scene-emoji" aria-hidden="true">🔒</span>
+            <span class="scene-name">Trancar Tudo</span>
+          </button>
+
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ SEMÂNTICO -->
+  <footer class="dashboard-footer">
+    <div class="footer-container">
+      <p>&copy; 2026 NexusHome Automação Residencial. Telemetria e Monitoramento Contínuo.</p>
+      <div class="footer-meta">
+        <span>Gateway: <strong>v2.8.4-stable</strong></span>
+        <span>Latência: <strong>9ms</strong></span>
+        <span>Segurança: <strong>TLS 1.3 Criptografado</strong></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script sutil para interatividade nos botões de cena -->
+  <script>
+    // Interação simples para troca de cenas ativas
+    const sceneButtons = document.querySelectorAll('.btn-scene');
+    sceneButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        if (!button.classList.contains('alert')) {
+          sceneButtons.forEach(btn => {
+            if (!btn.classList.contains('alert')) btn.classList.remove('active');
+          });
+          button.classList.add('active');
+        } else {
+          button.classList.toggle('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
